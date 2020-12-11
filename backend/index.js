@@ -190,6 +190,9 @@ app.get("/categories/:_id", async(req, res) => {
     );
 });
 
+
+
+
 app.delete("/category/:categoryId", async(req, res) => {
     const deleteCategory = await Category.deleteOne({ _id: req.params.categoryId })
     return res.json(deletedCategory)
