@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-info p-2 text-white">
+            Admin Panel
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-3">
+            <button routerLink="/site" class="btn btn-outline-info btn-block">Site</button>
+            <button routerLinkActive="active" routerLink="/admin/main/places" class="btn btn-outline-info btn-block">Places</button>
+            <button routerLinkActive="active" routerLink="/admin/main/categories" class="btn btn-outline-info btn-block">Categories</button>
+
+        </div>
+
+        <div class="col-9">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+
+
+
+</div>

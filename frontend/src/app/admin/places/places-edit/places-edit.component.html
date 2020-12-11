@@ -1,0 +1,121 @@
+<form #form="ngForm" (ngSubmit)="save(form)">
+    <div class="form-group">
+        <label>Place</label>
+        <input class="form-control" name="name" [(ngModel)]="place.name">
+    </div>
+    <div class="form-group">
+        <label>Sort</label>
+        <input class="form-control" name="sort_no" [(ngModel)]="place.sort_no">
+    </div>
+    <div class="form-group"><label>Kategori</label>
+        <select class="form-control" name="category" [(ngModel)]="place.category">
+          <option [value]="null" disabled>Kategori Seçin</option>
+          <option *ngFor="let category of categories" [value]="category._id">
+              {{ category.name }}
+          </option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label>Grup</label>
+        <input class="form-control" name="grup" [(ngModel)]="place.grup">
+    </div>
+    <div class="form-group">
+        <label>perma</label>
+        <input class="form-control" name="perma" [(ngModel)]="place.perma">
+    </div>
+    <div class="form-group">
+        <label>Seçim Başlık</label>
+        <input class="form-control" name="secim_baslik" [(ngModel)]="place.secim_baslik">
+    </div>
+    <div class="form-group">
+        <label>Seçim Spot</label>
+        <input class="form-control" name="secim_spot" [(ngModel)]="place.secim_spot">
+    </div>
+    <div class="form-group">
+        <label>Popular</label>
+        <input class="form-control" name="popular" [(ngModel)]="place.popular">
+    </div>
+    <div class="form-group">
+        <label>Transfree</label>
+        <input class="form-control" name="transfree" [(ngModel)]="place.transfree">
+    </div>
+    <div class="form-group">
+        <label>Meta Title</label>
+        <input class="form-control" name="meta_title" [(ngModel)]="place.meta_title">
+    </div>
+    <div class="form-group">
+        <label>Meta Description</label>
+        <input class="form-control" name="meta_description" [(ngModel)]="place.meta_description">
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <input class="form-control" name="status" [(ngModel)]="place.status">
+    </div>
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea class="form-control" name="description" [(ngModel)]="place.description"></textarea>
+    </div>
+
+    <div class="form-group">
+
+
+        <div *ngFor="let image of place.images; let i = index">
+            {{place.images[i][ 'image']}}
+            <input type="checkbox" name="mainImage" [(ngModel)]="place.images[i]['mainImage']" [checked]="place.images[i]['mainImage']"> {{place.images[i][ 'mainImage']}}
+            <button (click)="removeImage(i)">
+               
+              Sil
+          </button>
+        </div>
+        <br>
+        <div *ngFor="let image of uploadImages; let ii = index">
+            <input type="file" (change)="selectImage($event.target.files,ii)">
+            <input type="checkbox" (change)="setMainImage(ii)" [checked]="image['mainImage']">
+            <br>
+            <button type="button" (click)="addImage()">
+             Bir tane daha ekle
+          </button>
+            <button (click)="removeSelectedImage(ii)">
+              Sil
+          </button>
+        </div>
+
+        <div *ngIf="uploadImages.length === 0">
+            <button (click)="addImage()">Bir görsel ekle
+          </button>
+        </div>
+
+
+
+    </div>
+
+    <!-- <div *ngFor="let image of uploadImages; let i = index">
+        <input type="file" (change)="selectImage($event.target.files,i)">
+        <input type="checkbox" (change)="setMainImage(i)" [checked]="image['mainImage']">
+        <button type="button" (click)="addImage()">
+              Bir tane daha ekle
+          </button>
+        <button (click)="removeSelectedImage(i)">
+              Sil
+          </button>
+    </div>
+
+
+    <div *ngIf="uploadImages.length === 0">
+        <button (click)="addImage()">Bir görsel ekle
+          </button>
+    </div>
+ -->
+
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">
+    Edit Product
+  </button>
+    <button class="btn btn-warning" routerLink="/admin/main/places">Cancel</button>
+</form>

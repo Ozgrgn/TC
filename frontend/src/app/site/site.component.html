@@ -1,0 +1,67 @@
+<navbar> </navbar>
+
+<div class="container pt-100 mb-5">
+    <div class="row">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <ng-container *ngFor="let p of places">
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <img src="/assets/img/{{p.imageURL }}" alt="{{p.name}}">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="">
+                                {{p.name}}
+                            </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+
+</div>
+
+
+
+<p>
+
+    <tr *ngFor="let place of places; let i = index">
+        <td> {{i}} ----{{ place.name }}</td>
+
+    </tr>
+</p>
+
+<p>
+    wqrq {{ categories.length }}
+</p>
+<!-- <div>
+    <input type="text" [(ngModel)]="name" />
+
+    <button (click)="save()">Gönder</button>
+</div>
+
+<table style="width: 100%" *ngIf="places">
+    <thead>
+        <tr>
+            <td>Name</td>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let place of places">
+            <td>{{ place.name }}</td>
+
+        </tr>
+    </tbody>
+</table> -->

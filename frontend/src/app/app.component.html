@@ -1,0 +1,21 @@
+<div>
+    <input type="text" [(ngModel)]="name" />
+    <!-- <input type="text" [(ngModel)]="surname" /> -->
+    <button (click)="save()">Gönder</button>
+</div>
+
+<table style="width: 100%" *ngIf="places">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <!-- <td>Surname</td> -->
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let place of places">
+            <td>{{ this.name }}</td>
+            <!-- <td>{{ places.surname }}</td> -->
+        </tr>
+    </tbody>
+</table>
