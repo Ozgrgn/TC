@@ -183,6 +183,31 @@ app.get("/categories", async(req, res) => {
     );
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get("/categories/:_id", async(req, res) => {
     const category = await await Category.findById(req.params._id).exec();
     return res.json(
