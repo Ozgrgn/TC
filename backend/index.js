@@ -16,6 +16,8 @@ mongoose.connect("mongodb://localhost/tc", { useNewUrlParser: true });
 
 
 const multer = require('multer')
+
+
 app.use(express.static('public'));
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
